@@ -1,14 +1,14 @@
 const AVR = require('./lib/avr')
-const PLUGIN_NAME = 'homebridge-yamaha-receiver'
-const PLATFORM_NAME = 'YamahaReceiver'
+const PLUGIN_NAME = 'homebridge-yamaha-receiver-3'
+const PLATFORM_NAME = 'YamahaReceiver3'
 const storage = require('node-persist')
 const path = require('path')
 
 module.exports = (api) => {
-	api.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, YamahaReceiver)
+	api.registerPlatform(PLUGIN_NAME, PLATFORM_NAME, YamahaReceiver3)
 }
 
-class YamahaReceiver {
+class YamahaReceiver3 {
 
 	constructor(log, config, api) {
 		this.api = api
@@ -28,7 +28,7 @@ class YamahaReceiver {
 		if (this.statePollingInterval < 3)
 			this.statePollingInterval = 3
 		this.debug = config.debug || false
-		this.persistPath = path.join(this.api.user.persistPath(), '/../yamaha-receiver-persist')
+		this.persistPath = path.join(this.api.user.persistPath(), '/../yamaha-receiver-3-persist')
 
 		
 		// define debug method to output debug logs when enabled in the config

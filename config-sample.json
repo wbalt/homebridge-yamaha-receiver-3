@@ -5,10 +5,10 @@
     "port": 51826,
     "pin": "031-45-154"
   },
-  "description": "This is an example configuration for homebridge-yamaha-receiver",
+  "description": "This is an example configuration for homebridge-yamaha-receiver-3",
   "platforms": [
     {
-      "platform": "YamahaReceiver",
+      "platform": "YamahaReceiver3",
       "discovery": true,
       "debug": false,
       "statePollingInterval": 10,

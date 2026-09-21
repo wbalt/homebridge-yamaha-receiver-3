@@ -1,13 +1,26 @@
 <img src="branding/yamaha_homebridge.png" width="500px">
 
-# homebridge-yamaha-receiver
+# YamahaReceiver3
 
-[![Downloads](https://img.shields.io/npm/dt/homebridge-yamaha-receiver.svg?color=critical)](https://www.npmjs.com/package/homebridge-yamaha-receiver)
-[![Version](https://img.shields.io/npm/v/homebridge-yamaha-receiver)](https://www.npmjs.com/package/homebridge-yamaha-receiver)
-[![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
+`homebridge-yamaha-receiver-3` is a [Homebridge](https://github.com/homebridge/homebridge)
+plugin for Yamaha Audio Receivers, based on
+[the original plugin by nitaybz](https://github.com/nitaybz/homebridge-yamaha-receiver).
+This fork uses the distinct Homebridge platform name `YamahaReceiver3`.
 
-[Homebridge](https://github.com/nfarina/homebridge) plugin for Yamaha Audio Receivers
+## Configuration and migration
 
+Use `"platform": "YamahaReceiver3"` in your Homebridge configuration.
+See [config-sample.json](config-sample.json) for a complete example.
+When switching from the original plugin, install `homebridge-yamaha-receiver-3`
+and change the existing platform entry from `YamahaReceiver` to `YamahaReceiver3`.
+Disable or remove the original plugin's configuration for the same receiver.
+
+This fork stores its device and state cache in `yamaha-receiver-3-persist`
+inside the Homebridge user directory. The original `yamaha-receiver-persist`
+cache is not imported automatically. To retain cached names and input settings,
+stop Homebridge and copy the original cache directory to the new location
+before the first start of this fork. Homebridge accessory caches and HomeKit
+pairings are separate; accessories may need to be paired again after switching.
 
   <img src="branding/product.png" width="300">
 
@@ -22,7 +35,7 @@
 - [x] Check Node Version with `node -v`
 - [x] Check Homebridge version with `homebridge -V`
 
-## Support homebridge-yamaha-receiver
+## Support the original author
 
 **homebridge-yamaha-receiver** is a free plugin under the MIT license. it was developed as a contribution to the homebridge/hoobs community with lots of love and thoughts.
 Creating and maintaining Homebridge plugins consume a lot of time and effort and if you would like to share your appreciation, feel free to "Star" or donate.

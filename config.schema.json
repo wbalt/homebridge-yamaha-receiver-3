@@ -1,9 +1,9 @@
 {
-  "pluginAlias": "YamahaReceiver",
+  "pluginAlias": "YamahaReceiver3",
   "pluginType": "platform",
   "singular": true,
-  "headerDisplay": "**IN DEVELOPMENT** - Homebridge plugin for Yamaha Audio Receivers",
-  "footerDisplay": "Created by @nitaybz",
+  "headerDisplay": "**YamahaReceiver3** - Homebridge plugin for Yamaha Audio Receivers",
+  "footerDisplay": "Fork of homebridge-yamaha-receiver, originally created by @nitaybz",
   "schema": {
     "type": "object",
     "properties": {

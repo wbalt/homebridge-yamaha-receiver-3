@@ -1,4 +1,4 @@
-# Architektur: homebridge-yamaha-receiver
+# Architektur: homebridge-yamaha-receiver-3
 
 Analyse vom 21.09.2026, Ausgangsversion 0.3.3. Die Abschnitte zum Bestand
 beschreiben den vorgefundenen Code; die neue Input-Taster-Erweiterung ist
@@ -40,7 +40,7 @@ flowchart LR
 
 | Datei | Verantwortung |
 |---|---|
-| `index.js` | Registriert die Plattform `YamahaReceiver`, übernimmt Konfiguration, Logging und Persistenzpfad; startet `AVR.init` nach `didFinishLaunching`. |
+| `index.js` | Registriert die Plattform `YamahaReceiver3`, übernimmt Konfiguration, Logging und Persistenzpfad; startet `AVR.init` nach `didFinishLaunching`. |
 | `lib/avr.js` | Fragt Modell, System-ID, Features und Inputs ab; baut Gerätekonfigurationen und Zubehör für aktive Zonen. |
 | `accessories/Receiver.js` | Ein externes HomeKit-Zubehör pro Zone mit `Television`, verknüpften `InputSource`-Diensten und `TelevisionSpeaker`; optional Lautstärke als Lampe oder Ventilator. |
 | `lib/stateManager.js` | Übersetzt Yamaha-Zustände und HomeKit-Werte; führt Power-, Input-, Lautstärke-, Mute- und Fernbedienungsbefehle aus. |
@@ -53,7 +53,7 @@ flowchart LR
 ## Start und Datenmodell
 
 1. Homebridge registriert die Plattform und ruft nach dem Start `AVR.init` auf.
-2. `node-persist` öffnet `yamaha-receiver-persist` neben dem Homebridge-
+2. `node-persist` öffnet `yamaha-receiver-3-persist` neben dem Homebridge-
    Persistenzverzeichnis; gegebenenfalls werden alte Cache-Dateien migriert.
 3. Das Plugin lädt `cachedDevices` und `cachedStates`, entfernt nicht mehr
    konfigurierte Geräte aus seinem eigenen Gerätecache und iteriert die IPs.

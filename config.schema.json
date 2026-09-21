@@ -151,6 +151,39 @@
               "type": "integer",
               "minimum": -100,
               "maximum": 100
+            },
+            "inputButtons": {
+              "title": "Input Buttons (No Power On)",
+              "description": "Momentary switches selecting an input without sending a power-on command. Standby support depends on the receiver.",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "title": "Button Name",
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "input": {
+                    "title": "Yamaha Input Key",
+                    "description": "Exact receiver input key, e.g. HDMI1, AV1, NET RADIO. Not the HomeKit display name.",
+                    "type": "string",
+                    "minLength": 1,
+                    "required": true
+                  },
+                  "zone": {
+                    "title": "Zone",
+                    "type": "integer",
+                    "default": 1,
+                    "enum": [
+                      1,
+                      2,
+                      3,
+                      4
+                    ]
+                  }
+                }
+              }
             }
           }
         }
@@ -182,6 +215,17 @@
             "receivers[].ip",
             "receivers[].partySwitch",
             "receivers[].directSwitch",
+            {
+              "key": "receivers[].inputButtons",
+              "type": "array",
+              "title": "Input Buttons (No Power On)",
+              "buttonText": "Add Input Button",
+              "items": [
+                "receivers[].inputButtons[].name",
+                "receivers[].inputButtons[].input",
+                "receivers[].inputButtons[].zone"
+              ]
+            },
             "receivers[].volumeAccessory",
             "receivers[].minVolume",
             "receivers[].maxVolume",

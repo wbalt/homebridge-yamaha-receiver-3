@@ -17,6 +17,8 @@ class YamahaReceiver {
 
 		// this.accessories = []
 		this.avrDevices = []
+		this.inputButtonAccessories = new Map()
+		this.inputButtonControllers = []
 		this.PLUGIN_NAME = PLUGIN_NAME
 		this.PLATFORM_NAME = PLATFORM_NAME
 		this.name = config.name || PLATFORM_NAME
@@ -42,11 +44,15 @@ class YamahaReceiver {
 		}
 
 		this.api.on('didFinishLaunching', AVR.init.bind(this))
+		this.api.on('shutdown', () => {
+			for (const button of this.inputButtonControllers) button.dispose()
+		})
 
 	}
 
 	configureAccessory(accessory) {
 		this.log.easyDebug(`Found Cached Accessory: ${accessory.displayName} (${accessory.context.deviceId}) `)
-		// this.accessories.push(accessory)
+		if (accessory.context.type === 'input-button')
+			this.inputButtonAccessories.set(accessory.UUID, accessory)
 	}
 }

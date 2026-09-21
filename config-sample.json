@@ -5,7 +5,6 @@
     "port": 51826,
     "pin": "031-45-154"
   },
-
   "description": "This is an example configuration for homebridge-yamaha-receiver",
   "platforms": [
     {
@@ -19,7 +18,19 @@
           "ip": "10.0.0.2",
           "minVolume": -80,
           "maxVolume": 10,
-          "volumeAccessory": "fan"
+          "volumeAccessory": "fan",
+          "inputButtons": [
+            {
+              "name": "Apple TV Input",
+              "input": "HDMI1",
+              "zone": 1
+            },
+            {
+              "name": "TV Input",
+              "input": "HDMI2",
+              "zone": 1
+            }
+          ]
         },
         {
           "name": "My Yamaha",
@@ -40,7 +51,5 @@
       ]
     }
   ],
-
-  "accessories": [
-  ]
+  "accessories": []
 }
